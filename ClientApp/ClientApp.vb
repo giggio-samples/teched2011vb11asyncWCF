@@ -4,18 +4,21 @@ Imports ClientApp.WCFService
 Module ClientApp
 
     Sub Main()
-        Dim tickers As String() = {"MSFT", "C", "YHOO", "GOOG", "GE", "FOO"}
-        Dim watch = New Stopwatch
-        watch.Start()
-        ComputeStockPricesAsync(tickers).ContinueWith(
-            Sub(completed)
-                watch.Stop()
-                Console.WriteLine("All the stock prices have been obtained.")
-                Console.WriteLine("Total time: " & Convert.ToDouble(watch.ElapsedMilliseconds) / 1000)
-            End Sub)
-
         Console.WriteLine("Wait for the stock prices to be printed out or hit ENTER to exit...")
-        Console.ReadLine()
+
+        Dim tickers As String() = {"MSFT", "C", "YHOO", "GOOG", "GE", "FOO"}
+        While True
+            Dim watch = New Stopwatch
+            watch.Start()
+            Dim task = ComputeStockPricesAsync(tickers)
+            task.Wait()
+            watch.Stop()
+            Console.WriteLine("All the stock prices have been obtained, press enter to obtain again, any other key to exit.")
+            Console.WriteLine("Total time: " & Convert.ToDouble(watch.ElapsedMilliseconds) / 1000)
+            If Console.ReadKey.Key <> ConsoleKey.Enter Then
+                Exit While
+            End If
+        End While
     End Sub
 
     Async Function ComputeStockPricesAsync(ByVal tickers As String()) As Task

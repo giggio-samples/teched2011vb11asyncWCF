@@ -13,6 +13,8 @@ Public Class QuoteCalculatorService
         Double.TryParse(quoteValues(0), price)
         Double.TryParse(quoteValues(1), change)
 
+        Await Task.Delay(2000)
+
         Return New Quote() With {.Ticker = ticker, .Price = price, .Change = change}
     End Function
 
