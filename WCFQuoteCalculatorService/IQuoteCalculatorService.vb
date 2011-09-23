@@ -1,29 +1,14 @@
-﻿'--------------------------------------------------------------------------
-' 
-'  Copyright (c) Microsoft Corporation.  All rights reserved. 
-' 
-'  File: IQuoteCalculatorService.cs
-'
-'--------------------------------------------------------------------------
-
-Imports System.Collections.ObjectModel
+﻿Imports System.Collections.ObjectModel
+Imports System.Threading.Tasks
 
 <ServiceContract()>
 Public Interface IQuoteCalculatorService
 
-    '<OperationContract()>
-    'Function GetQuote(ByVal ticker As String) As Quote
+    <OperationContract(AsyncPattern:=True)>
+    Function GetQuoteAsync(ByVal ticker As String) As Task(Of Quote)
 
     <OperationContract(AsyncPattern:=True)>
-    Function BeginGetQuote(ByVal ticker As String, ByVal callback As AsyncCallback, ByVal state As Object) As IAsyncResult
-    Function EndGetQuote(ByVal result As IAsyncResult) As Quote
-
-    '<OperationContract()>
-    'Function GetQuotes(ByVal tickers As String()) As ReadOnlyCollection(Of Quote)
-
-    <OperationContract(AsyncPattern:=True)>
-    Function BeginGetQuotes(ByVal tickers As String(), ByVal callback As AsyncCallback, ByVal state As Object) As IAsyncResult
-    Function EndGetQuotes(ByVal result As IAsyncResult) As ReadOnlyCollection(Of Quote)
+    Function GetQuotesAsync(ByVal tickers As String()) As Task(Of ReadOnlyCollection(Of Quote))
 
 End Interface
 

@@ -1,12 +1,4 @@
-﻿'--------------------------------------------------------------------------
-' 
-'  Copyright (c) Microsoft Corporation.  All rights reserved. 
-' 
-'  File: ClientApp.cs
-'
-'--------------------------------------------------------------------------
-
-Imports System.Threading.Tasks
+﻿Imports System.Threading.Tasks
 Imports ClientApp.WCFService
 
 Module ClientApp
@@ -27,7 +19,7 @@ Module ClientApp
         For Each ticker As String In tickers
             Try
                 Dim quoteTask = New QuoteCalculatorServiceClient().GetQuoteAsync(ticker)
-                If (quoteTask Is Await TaskEx.WhenAny(quoteTask, TaskEx.Delay(10000))) Then
+                If (quoteTask Is Await Task.WhenAny(quoteTask, Task.Delay(10000))) Then
                     Dim quote = Await quoteTask
                     Console.WriteLine("Ticker: " + quote.Ticker)
                     Console.WriteLine(vbTab & "Price: " + If(Not quote.Price.Equals(0.0), quote.Price.ToString(), "Unknown"))

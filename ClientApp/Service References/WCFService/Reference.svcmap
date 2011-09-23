@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f7249a29-b66d-4cb7-8d2f-340485953c03" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2a23286d-bf73-4a98-b9a5-bb3d7f7aeb6a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
-    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
@@ -21,13 +22,13 @@
     <MetadataSource Address="http://localhost:43447/QuoteCalculatorService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="QuoteCalculatorService.xsd" MetadataType="Schema" ID="da5c9072-8340-4840-b0ae-a5f898377aa5" SourceId="1" SourceUrl="http://localhost:43447/QuoteCalculatorService.svc?xsd=xsd0" />
-    <MetadataFile FileName="QuoteCalculatorService1.xsd" MetadataType="Schema" ID="3eec679b-78b0-4381-84de-8b8266e0c324" SourceId="1" SourceUrl="http://localhost:43447/QuoteCalculatorService.svc?xsd=xsd1" />
-    <MetadataFile FileName="QuoteCalculatorService2.xsd" MetadataType="Schema" ID="eb9af162-0535-408f-8d10-9277bbc347e8" SourceId="1" SourceUrl="http://localhost:43447/QuoteCalculatorService.svc?xsd=xsd2" />
-    <MetadataFile FileName="QuoteCalculatorService3.xsd" MetadataType="Schema" ID="2ba4c48e-fb4d-4145-a2f0-05d83b324e36" SourceId="1" SourceUrl="http://localhost:43447/QuoteCalculatorService.svc?xsd=xsd3" />
-    <MetadataFile FileName="QuoteCalculatorService4.xsd" MetadataType="Schema" ID="faf639f8-7bb9-40f4-92d7-8a250fe97605" SourceId="1" SourceUrl="http://localhost:43447/QuoteCalculatorService.svc?xsd=xsd4" />
-    <MetadataFile FileName="QuoteCalculatorService.disco" MetadataType="Disco" ID="34644c5e-33da-4190-9407-814267d2590c" SourceId="1" SourceUrl="http://localhost:43447/QuoteCalculatorService.svc?disco" />
-    <MetadataFile FileName="QuoteCalculatorService.wsdl" MetadataType="Wsdl" ID="1aa11ed5-4e2d-4413-950b-961876d3c0bd" SourceId="1" SourceUrl="http://localhost:43447/QuoteCalculatorService.svc?wsdl" />
+    <MetadataFile FileName="QuoteCalculatorService.xsd" MetadataType="Schema" ID="23228115-37d0-4011-8cb8-2f2717e69285" SourceId="1" SourceUrl="http://localhost:43447/QuoteCalculatorService.svc?xsd=xsd0" />
+    <MetadataFile FileName="QuoteCalculatorService1.xsd" MetadataType="Schema" ID="0e80950d-d23d-4a88-ae1a-747f7475fa25" SourceId="1" SourceUrl="http://localhost:43447/QuoteCalculatorService.svc?xsd=xsd1" />
+    <MetadataFile FileName="QuoteCalculatorService2.xsd" MetadataType="Schema" ID="3dad5a7e-125a-46d6-a387-3fe37c161f52" SourceId="1" SourceUrl="http://localhost:43447/QuoteCalculatorService.svc?xsd=xsd2" />
+    <MetadataFile FileName="QuoteCalculatorService3.xsd" MetadataType="Schema" ID="ec3acdb5-160d-4390-b0ac-f85ce40f2d39" SourceId="1" SourceUrl="http://localhost:43447/QuoteCalculatorService.svc?xsd=xsd3" />
+    <MetadataFile FileName="QuoteCalculatorService4.xsd" MetadataType="Schema" ID="24481ba2-b3d4-4127-a24f-45353acc9be9" SourceId="1" SourceUrl="http://localhost:43447/QuoteCalculatorService.svc?xsd=xsd4" />
+    <MetadataFile FileName="QuoteCalculatorService.disco" MetadataType="Disco" ID="02b0a8b0-ff52-4722-ba43-4be296c145c2" SourceId="1" SourceUrl="http://localhost:43447/QuoteCalculatorService.svc?disco" />
+    <MetadataFile FileName="QuoteCalculatorService.wsdl" MetadataType="Wsdl" ID="7af2b924-c61a-411a-b196-a2d8e3fc7100" SourceId="1" SourceUrl="http://localhost:43447/QuoteCalculatorService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
