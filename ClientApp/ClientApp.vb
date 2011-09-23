@@ -14,27 +14,17 @@ Module ClientApp
                 Console.WriteLine("Total time: " & Convert.ToDouble(watch.ElapsedMilliseconds) / 1000)
             End Sub)
 
-        Console.WriteLine("Wait for the stock prices to be printed out or hit ENTER to exit...\n")
+        Console.WriteLine("Wait for the stock prices to be printed out or hit ENTER to exit...")
         Console.ReadLine()
     End Sub
 
     Async Function ComputeStockPricesAsync(ByVal tickers As String()) As Task
-        For Each ticker As String In tickers
-            Try
-                Dim quoteTask = New QuoteCalculatorServiceClient().GetQuoteAsync(ticker)
-                If (quoteTask Is Await Task.WhenAny(quoteTask, Task.Delay(10000))) Then
-                    Dim quote = Await quoteTask
-                    Console.WriteLine("Ticker: " + quote.Ticker)
-                    Console.WriteLine(vbTab & "Price: " + If(Not quote.Price.Equals(0.0), quote.Price.ToString(), "Unknown"))
-                    Console.WriteLine(vbTab & "Change of the day: " + If(Not quote.Change.Equals(0.0), quote.Change.ToString(), "Unknown"))
-                    Console.WriteLine()
-                Else
-                    Console.WriteLine("Timed out")
-                End If
-            Catch e As Exception
-                Console.WriteLine(e.Message)
-                Console.WriteLine()
-            End Try
+        Dim quotes = Await New QuoteCalculatorServiceClient().GetQuotesAsync(tickers)
+        For Each quote In quotes
+            Console.WriteLine("Ticker: " + quote.Ticker)
+            Console.WriteLine(vbTab & "Price: " + If(Not quote.Price.Equals(0.0), quote.Price.ToString(), "Unknown"))
+            Console.WriteLine(vbTab & "Change of the day: " + If(Not quote.Change.Equals(0.0), quote.Change.ToString(), "Unknown"))
+            Console.WriteLine()
         Next
     End Function
 
