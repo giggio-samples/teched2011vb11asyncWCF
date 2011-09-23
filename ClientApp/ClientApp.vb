@@ -5,10 +5,13 @@ Module ClientApp
 
     Sub Main()
         Dim tickers As String() = {"MSFT", "C", "YHOO", "GOOG", "GE", "FOO"}
-
+        Dim watch = New Stopwatch
+        watch.Start()
         ComputeStockPricesAsync(tickers).ContinueWith(
             Sub(completed)
+                watch.Stop()
                 Console.WriteLine("All the stock prices have been obtained.")
+                Console.WriteLine("Total time: " & Convert.ToDouble(watch.ElapsedMilliseconds) / 1000)
             End Sub)
 
         Console.WriteLine("Wait for the stock prices to be printed out or hit ENTER to exit...\n")
